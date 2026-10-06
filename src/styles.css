@@ -1,0 +1,495 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/* 自定义艺术字体 YuFanXinYu (MIT License, chilingg 2022)
+ * 字体文件位于 public/fonts/，Vite 构建时会原样复制到 dist/fonts/
+ * 4 个字重全部声明，避免线上 font-weight 不匹配降级
+ * font-display: block — 字体下载完成前用不可见占位，杜绝宋体/楷体丑陋闪烁 (FOUT)
+ * 配合 __root.tsx 中的 preload 声明，Regular 字重首屏直取 */
+@font-face {
+  font-family: 'YuFanXinYu';
+  src: url('/fonts/YuFanXinYu-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'YuFanXinYu';
+  src: url('/fonts/YuFanXinYu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'YuFanXinYu';
+  src: url('/fonts/YuFanXinYu-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: 'YuFanXinYu';
+  src: url('/fonts/YuFanXinYu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+/* 上元明朝体 (Lantern Ming) — 明信片导出标题专用
+ * A = 常用字主字体 (全量生效)；B = 扩展区生僻字 (unicode-range 限定，仅按需下载)
+ * Canvas 绘制前由 StampSheetModal 调用 document.fonts.load() 显式等待就绪，
+ * 确保手机与电脑 100% 统一呈现温润典雅的明朝体，杜绝宋体/黑体随机降级 */
+@font-face {
+  font-family: 'LanternMing';
+  src: url('/fonts/LanternMingA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LanternMing';
+  src: url('/fonts/LanternMingB.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+3400-4DBF, U+20000-2FFFD, U+30000-3FFFD;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+.font-calligraphy {
+  font-family: 'Zhi Mang Xing', 'STKaiti', 'Kaiti', cursive, sans-serif !important;
+  font-weight: 400 !important;
+  text-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+}
+
+.font-calligraphy-en {
+  font-family: 'Courgette', cursive;
+}
+
+/* Iceland 本地字体（英文标题"TRAVEL TOGETHER"使用）
+ * 本地加载仅 47KB，零网络延迟；font-display: swap 配合 preload 实现秒开无留白 */
+@font-face {
+  font-family: 'Iceland';
+  src: url('/fonts/Iceland-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-iceland {
+  /* Iceland 是单字重窄长艺术字体，fallback 用更窄的 sans-serif 减少尺寸抖动 (CLS) */
+  font-family: 'Iceland', 'Arial Narrow', sans-serif;
+}
+
+/* YuFanXinYu 优先；保留 Zhi Mang Xing 作为 Google Fonts CDN 兜底
+ * 不强制 font-weight，让组件自然选择对应字重，保留笔触细节 */
+.font-yufan {
+  font-family: 'YuFanXinYu', 'Zhi Mang Xing', 'STKaiti', 'Kaiti', cursive, sans-serif;
+}
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
+/*
+ * Travel Together — Dark tech/outdoor design system.
+ * Emerald/teal accents on a deep midnight-navy surface.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-dark-gray: #282C35;
+  --color-dark-gray-alt: #1E222A;
+  --color-brand-cyan: #00F2FE;
+  --color-brand-cyan-alt: #22D3EE;
+  --color-secondary-text: #8A92A0;
+}
+
+/* Light-first: :root holds the LIGHT palette (default).
+ * .dark holds the DARK palette — activated by ThemeProvider adding the .dark class on <html>.
+ * Brand accent in light mode uses deeper teal/cyan-600 for AA contrast on white surfaces. */
+:root {
+  --radius: 0.875rem;
+
+  /* Light palette — 极浅凉灰/米白背景 */
+  --background: #F8FAFC;
+  --foreground: #0F172A; /* slate-900 */
+
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+
+  /* Light 模式品牌主色：深青/teal-600 保证 AA 对比度 */
+  --brand: #0D9488; /* teal-600 */
+  --brand-foreground: #FFFFFF;
+
+  --primary: #0D9488; /* teal-600 */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #F1F5F9; /* slate-100 */
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B; /* slate-500 */
+  --accent: #ECFDF5; /* teal-50 */
+  --accent-foreground: #0F172A;
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: #FEF2F2;
+
+  --border: rgba(15, 23, 42, 0.1); /* slate-900/10 */
+  --input: rgba(15, 23, 42, 0.08);
+  --ring: #0D9488;
+
+  --chart-1: #0D9488;
+  --chart-2: #38BDF8;
+  --chart-3: #FBBF24;
+  --chart-4: #A78BFA;
+  --chart-5: #FB923C;
+
+  --sidebar: #F8FAFC;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #0D9488;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: rgba(15, 23, 42, 0.1);
+  --sidebar-ring: #0D9488;
+
+  --gradient-brand: linear-gradient(135deg, #5EEAD4 0%, #14B8A6 48%, #0F766E 100%);
+  --gradient-surface: radial-gradient(
+    ellipse at 50% 0%,
+    #FFFFFF 0%,
+    #F8FAFC 50%,
+    #F1F5F9 100%
+  );
+  --shadow-brand: 0 0 26px rgba(13, 148, 136, 0.25);
+  --shadow-card: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+/* Dark palette — activated when <html> has .dark class */
+.dark {
+  --background: #020B14;
+  --foreground: #F1F5F9;
+
+  --card: #0B1A2A;
+  --card-foreground: #F1F5F9;
+  --popover: #0B1A2A;
+  --popover-foreground: #F1F5F9;
+
+  /* Dark 模式品牌主色：保持荧光青绿 */
+  --brand: #00F2FE;
+  --brand-foreground: #020617;
+
+  --primary: #00F2FE;
+  --primary-foreground: #020617;
+
+  --secondary: #102033;
+  --secondary-foreground: #F1F5F9;
+  --muted: #102033;
+  --muted-foreground: #8797AA;
+  --accent: #123044;
+  --accent-foreground: #F1F5F9;
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: #FEF2F2;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.065);
+  --ring: #00F2FE;
+
+  --chart-1: #00F2FE;
+  --chart-2: #38BDF8;
+  --chart-3: #FBBF24;
+  --chart-4: #A78BFA;
+  --chart-5: #FB923C;
+
+  --sidebar: #020B14;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #00F2FE;
+  --sidebar-primary-foreground: #020617;
+  --sidebar-accent: #0B1A2A;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #00F2FE;
+
+  --gradient-brand: linear-gradient(135deg, #7FF6FE 0%, #00F2FE 48%, #08B4C4 100%);
+  --gradient-surface: radial-gradient(
+    ellipse at 50% 0%,
+    #102236 0%,
+    #071522 42%,
+    #020B14 80%
+  );
+  --shadow-brand: 0 0 26px rgba(0, 242, 254, 0.35);
+  --shadow-card: 0 18px 42px -24px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.045);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  /* 主题切换平滑过渡：仅对背景色与文字色施加 0.2s 过渡，避免布局抖动 */
+  *,
+  *::before,
+  *::after {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  html,
+  body {
+    background: var(--gradient-surface);
+    color: var(--color-foreground);
+    min-height: 100vh;
+    /* iOS PWA 全屏模式 Safe Area 适配：顶部避开状态栏/灵动岛，底部避开 Home Indicator */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* 移动端触控优化：消除 300ms 点击延迟，允许标准滚动与手势
+   * manipulation = 禁用双击缩放但保留滚动与点击（比 none 更友好） */
+  html,
+  body {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 确保可点击元素始终响应触控事件 */
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+}
+
+/* MapLibre GL theming — 轻量化灰白极简风格 (参考 stamp-journey-main) */
+.maplibregl-map {
+  font-family: inherit;
+  background: #eef2f6;
+}
+.maplibregl-canvas {
+  outline: none;
+}
+/* 极简灰白滤镜：让 CARTO Light 浅色地图的灰色道路与背景显得更加高级干净
+ * MapLibre GL 将所有栅格图层渲染到单一 Canvas，故对 canvas 整体施加灰度滤镜。
+ * grayscale(90%) 去除残余杂色，contrast(98%) 保持道路轮廓清晰。
+ */
+.map-tiles-light,
+.maplibregl-canvas {
+  filter: grayscale(90%) contrast(98%) !important;
+}
+
+/* GPS 定位发光波纹蓝点动画 (参考 stamp-journey-main map-pulse) */
+@keyframes map-pulse {
+  0% { transform: scale(0.5); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* 足迹打卡照片 Marker hover 缩放效果 */
+.map-photo-marker:hover > div {
+  transform: scale(1.08);
+}
+
+/* 地图文字标注层柔和过滤
+ * 注：MapLibre 将所有栅格图层渲染到单一 Canvas，CSS 无法直接作用于单个图层。
+ * 文字标注层的可见性与透明度通过 StyleSpecification 控制：
+ *   - minzoom: 6  → Zoom < 6（国家视角）时不加载文字瓦片，屏蔽 CHINA/MONGOLIA 等国家级大字
+ *   - raster-opacity: 0.7 → Zoom ≥ 6（城市/街道视角）时柔和显示城市与街道名
+ * 此 class 仅作为样式标记，便于未来切换到 Leaflet 时直接复用。
+ */
+.map-labels-layer {
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+}
+.maplibregl-ctrl-attrib {
+  background: rgba(11, 26, 42, 0.72) !important;
+  color: #8797AA !important;
+  backdrop-filter: blur(6px);
+  font-size: 10px !important;
+}
+.maplibregl-ctrl-attrib a {
+  color: #00F2FE !important;
+}
+
+/* Light 模式 MapLibre 归属控件 */
+:root:not(.dark) .maplibregl-ctrl-attrib {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #64748B !important;
+}
+:root:not(.dark) .maplibregl-ctrl-attrib a {
+  color: #0D9488 !important;
+}
+
+/* Dark-tech zoom controls — unified with app chrome (.dark 模式) */
+.dark .leaflet-bar,
+.dark .leaflet-bar a,
+.dark .maplibregl-ctrl,
+.dark .maplibregl-ctrl-group,
+.dark .maplibregl-ctrl-group button {
+  background-color: #0B1A2A !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .leaflet-bar a:first-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .leaflet-bar a:hover,
+.dark .maplibregl-ctrl-group button:hover {
+  background-color: #102033 !important;
+  color: #FFFFFF !important;
+}
+
+/* Force MapLibre zoom +/- icons to pure white for contrast on dark chrome */
+.dark .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1) brightness(2) !important;
+}
+
+/* Light 模式 zoom controls — 纯白背景 + 深灰图标 */
+:root:not(.dark) .leaflet-bar,
+:root:not(.dark) .leaflet-bar a,
+:root:not(.dark) .maplibregl-ctrl,
+:root:not(.dark) .maplibregl-ctrl-group,
+:root:not(.dark) .maplibregl-ctrl-group button {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1) !important;
+}
+
+:root:not(.dark) .leaflet-bar a:first-child {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+:root:not(.dark) .maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+:root:not(.dark) .leaflet-bar a:hover,
+:root:not(.dark) .maplibregl-ctrl-group button:hover {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+/* Light 模式无需反转图标 */
+:root:not(.dark) .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: none !important;
+}
+
+/* 仿真导航路线样式 (MapLibre canvas 渲染，此处为样式参考与备用覆盖) */
+.leaflet-route-bg {
+  animation: routeFlow 1.2s linear infinite;
+}
+@keyframes routeFlow {
+  to { stroke-dashoffset: -16; }
+}
+
+/* 仿真行走高亮圆点发光效果 */
+.leaflet-walker-glow {
+  animation: walkerPulse 1.5s ease-in-out infinite;
+}
+@keyframes walkerPulse {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px #00f6ff); }
+  50% { opacity: 0.7; filter: drop-shadow(0 0 8px #00f6ff); }
+}
+
+/* ========================================
+   美化原生日历选择器右侧的灰色图标，强制过滤为高档的青蓝色
+   ======================================== */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(83%) sepia(96%) saturate(2348%) hue-rotate(140deg) brightness(101%) contrast(101%);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ========================================
+   全局隐藏所有元素的默认滚动条（桌面端），100% 保留鼠标滚轮与手势滚动功能
+   ======================================== */
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important;    /* Firefox */
+}
+

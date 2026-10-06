@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+build
+.output
+.vinxi
+.tanstack/**
+.nitro
+.next
+*.local
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars
+
+# Supabase CLI local link state (project-specific, not for open source)
+supabase/.temp/
+supabase/config.toml
+
+# Build caches
+.tsbuildinfo
+.tmp-*
+.uploads/
+.output/
+
+# Database dumps / backups (NEVER commit)
+*.dump
+*.backup
+*.bak
+*.sql.gz
+
+# Environment variables (NEVER commit real credentials)
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

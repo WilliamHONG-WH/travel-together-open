@@ -1,0 +1,42 @@
+※ This file is a plain-text sample for the Museum Culture Encyclopedia module.
+※ In [Info - Museum Encyclopedia], choose Import Document to auto-create the card; supports .txt / .md / .docx.
+※ Format notes:
+※   Title line: hash + space + Chinese Title + space + Foreign Title.
+※   Field lines: Country / City / Address / GPS / Hours / Introduction + colon + content.
+※   Featured Exhibits section begins with ## Featured Exhibits.
+※   Each exhibit begins with: ### Chinese Name + space + English Name.
+※   Exhibit 4 fields: English Name / Chinese Name / Description / History + colon + content.
+※ Comment lines are ignored on import.
+
+# 圣母百花大教堂 Cattedrale di Santa Maria del Fiore
+
+Country: Italy
+City: Florence
+Address: Piazza del Duomo, 50122 Firenze FI, Italy
+GPS: 43.7731, 11.2560
+Hours: 10:15AM-3:45PM | MON-SAT (Oct to Mar) | 10:15AM-4:45PM | MON-SAT (Apr to Sep) | 8:15AM-7:30PM (Dome Climb, reservation required) | SUN Open for worship only
+
+Introduction:
+The Cathedral of Santa Maria del Fiore is the mother church of Florence, begun in 1296 under Arnolfo di Cambio and consecrated in 1436 by Pope Eugene IV. It stands as one of the largest cathedrals in Italy.
+Its iconic octagonal brick dome engineered by Filippo Brunelleschi spans over 44 meters without exterior scaffolding, hailed as a monumental triumph of Renaissance engineering. The vast interior is crowned by Giorgio Vasari and Federico Zuccari's 3,600 m² Last Judgment fresco.
+The exterior is clad in striking polychrome marble panels of white, green, and pink, forming the architectural core of Florence's UNESCO World Heritage historic center alongside Giotto's Campanile and the Baptistery of St. John.
+
+## Featured Exhibits
+
+### 大穹顶壁画 The Last Judgement
+English Name: The Last Judgement (Giudizio Universale)
+Chinese Name: 末日审判穹顶壁画
+Description: Colossal fresco covering 3,600 m² inside Brunelleschi's dome, initiated by Giorgio Vasari and completed by Federico Zuccari, depicting the Book of Revelation with over 700 celestial figures.
+History: Commissioned by Cosimo I in 1568; after Vasari's death in 1574, Zuccari took over and completed the monumental work in 1579, forming the dramatic visual climax for dome climbers.
+
+### 天堂之门 Gates of Paradise
+English Name: Gates of Paradise (Porta del Paradiso)
+Chinese Name: 天堂之门（圣若望洗礼堂东门）
+Description: Gilded bronze east doors of the Florence Baptistery sculpted by Lorenzo Ghiberti, featuring 10 square relief panels illustrating Old Testament narratives with linear perspective.
+History: Begun in 1425 and completed in 1452 after 27 years of labor; Michelangelo famously declared them worthy of being the gates of heaven. The restored original panels reside in the Opera del Duomo Museum.
+
+### 圣母怜子像 The Deposition
+English Name: The Deposition (Pietà Bandini)
+Chinese Name: 圣母怜子像（班迪尼圣母怜子像）
+Description: Marble sculpture sculpted by Michelangelo between 1547 and 1555, showing Christ's body supported by the Virgin Mary, Mary Magdalene, and Nicodemus (in which Michelangelo carved his own self-portrait).
+History: Intended for his own tomb, Michelangelo damaged the sculpture in frustration in 1555; later restored by his pupil Tiberio Calcagni, acquired by Francesco Bandini, and relocated in 2021 behind the Cathedral's high altar.

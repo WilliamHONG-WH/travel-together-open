@@ -1,0 +1,18 @@
+{
+  "short_name": "山海同行",
+  "name": "山海同行",
+  "description": "Plan trips, drop photo checkins on a live map, share your real-time location and chat with your travel crew.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#01172a",
+  "theme_color": "#01172a",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

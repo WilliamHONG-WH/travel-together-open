@@ -1,0 +1,31 @@
+# Northern Italy Journey · Local Dishes Import Template (Starters / Mains / Desserts / Snacks)
+
+※ This file is a plain-text sample for the Food Planner - Local Specialties view.
+※ In the Local Specialties view, choose Import Document to auto-fill; supports .txt / .md / .docx.
+※ Format notes:
+※   Section header: ## Local Specialties
+※   Day line: Day + number + colon + date + colon + city theme.
+※   Dish line: bracketed course tag [Starter] / [Main] / [Dessert] / [Snack] + space + dish name.
+※   Following lines become description.
+
+## Local Specialties
+
+Day 1: Sep 17: Milan
+[Starter] Prosciutto e Melone (Parma Ham with Melon)
+Description: Savory cured Parma ham wrapped around sweet melon, a classic balance of salty and sweet.
+[Main] Risotto alla Milanese (Milanese Saffron Risotto)
+Description: Golden saffron risotto slow-cooked with beef marrow broth and finished with shaved Parmigiano.
+[Dessert] Tiramisù
+Description: Venetian layered dessert of coffee-soaked ladyfingers and mascarpone cream, melting on the tongue.
+
+Day 3: Sep 19: Rome
+[Starter] Supplì al Telefono (Roman Fried Rice Balls)
+Description: Crispy fried rice croquettes filled with mozzarella that stretches like telephone cords when hot.
+[Main] Spaghetti alla Carbonara
+Description: Rome's iconic pasta dish with guanciale, Pecorino Romano, and fresh egg yolks without cream.
+[Main] Abbacchio alla Scottadito (Grilled Lamb Chops)
+Description: Traditional Roman grilled lamb chops with rosemary and lemon, named "Scottadito" (burn your fingers).
+[Snack] Pizza al Taglio (Roman Square Pizza by the Slice)
+Description: Light, airy Roman-style sheet pizza sold by weight, perfect for eating on the go.
+[Dessert] Roman Ricotta Cake
+Description: Baked fresh ricotta cheese tart scented with candied lemon peel.

@@ -1,0 +1,50 @@
+# Northern Italy Journey
+
+※ This file is a plain-text sample for the Itinerary module.
+※ In [Plan - Itinerary], choose Import Document to auto-fill; supports .txt / .md / .docx.
+※ Format notes:
+※   Line 1: hash + space + trip title, shown in the import success message only.
+※   Day line: Day + number + colon + date, e.g. Day 1: 2026-09-16.
+※   Daily theme line: two hashes + space + theme, right after the day line.
+※   Timeline card: bracketed 24-hour time + space + card title, following lines become description.
+※   Untimed cards: bracketed tag [Itinerary] / [Strategy] / [Notes] / [Tips] + space + title.
+※   Three dashes on their own line separate days.
+
+Day 1: 2026-09-16
+## Arrival in Milan, Gothic Grandeur
+[10:35] Land at Milan Malpensa Airport (MXP)
+Take the Malpensa Express directly to Milano Centrale, approx. 52 minutes. Tickets can be purchased at airport kiosks.
+[13:30] Hotel Check-in & Midday Rest
+[15:30] Duomo di Milano
+Gothic masterpiece: climb to the rooftop terraces to take in Milan's spire forest, with marble glowing gold at dusk.
+[18:30] Galleria Vittorio Emanuele II & Dinner
+Window shopping under the grand iron-and-glass dome; enjoy traditional Milanese saffron risotto nearby.
+[Notes] Transportation Tips
+The airport express terminates at Milano Centrale; transfer to Metro M3 (Yellow Line) to reach Duomo station.
+
+---
+
+Day 2: 2026-09-17
+## Milan Morning & Renaissance Treasures
+[08:00] Breakfast at Marchesi 1824
+Historic 200-year-old pastry shop; wake up Milan's morning with a pistachio croissant and rich hot chocolate.
+[09:30] The Last Supper at Santa Maria delle Grazie
+Leonardo da Vinci's genuine masterpiece; reservation required weeks in advance, 15-minute slot per group.
+[13:00] Sforza Castle & Sempione Park
+Free access to castle courtyards; afternoon stroll through Sempione Park towards the Arco della Pace.
+[19:00] Dinner in Navigli Canal District
+Birthplace of Milan's iconic Aperitivo culture; evening walk along the scenic canal banks after dinner.
+
+---
+
+Day 3: 2026-09-18
+## Farewell Milan, Bound for the Renaissance Heart
+[08:30] Depart from Milano Centrale
+Board the Frecciarossa high-speed train south to Florence Santa Maria Novella station, approx. 1h 50m.
+[11:00] Arrive in Florence & Store Luggage
+[14:00] Galleria dell'Accademia
+Michelangelo's original David and the Prisoners series, celebrating the pinnacle of Renaissance sculpture.
+[17:00] Florence Cathedral (Cattedrale di Santa Maria del Fiore)
+Brunelleschi's magnificent brick dome and Vasari's Last Judgment fresco, illuminated beautifully at dusk.
+[Strategy] Ticket Booking Strategy
+Online timed-entry tickets are strongly recommended for Accademia and the Dome climb to skip 1-hour queues.

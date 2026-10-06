@@ -1,0 +1,61 @@
+# Northern Italy Journey · Curated Restaurants Import Template (Breakfast / Lunch / Afternoon Tea / Dinner)
+
+※ This file is a plain-text sample for the Food Planner - Curated Restaurants view.
+※ In the Restaurants view, choose Import Document to auto-fill; supports .txt / .md / .docx.
+※ Format notes:
+※   Section header: ## Restaurants
+※   Restaurant entry: ### Name (City)
+※   Fields: Meal Type / City / Country / Address / GPS / Hours / Notes + colon + content.
+※   Must-Order line followed by bullet points: - Dish Name (Price) notes.
+
+## Restaurants
+
+### Marchesi 1824 (Milan)
+Meal Type: Breakfast
+City: Milan
+Country: Italy
+Address: Via Santa Maria alla Porta 11/a, 20123 Milano
+GPS: 45.4642, 9.1897
+Hours: 07:30 - 20:00
+Notes: Historic 200-year-old pastry shop famed for artisan chocolates and morning espresso.
+Must-Order:
+- Pistachio Croissant (€4.5) Best served warm from the oven
+- Italian Hot Chocolate (€6.0)
+
+### Trattoria ZaZa (Florence)
+Meal Type: Lunch
+City: Florence
+Country: Italy
+Address: Piazza del Mercato Centrale 26r, 50123 Firenze
+GPS: 43.7766, 11.2533
+Hours: 12:00 - 23:00
+Notes: Legendary bustling trattoria beside San Lorenzo market; arrive 30 mins before peak lunch hours.
+Must-Order:
+- Bistecca alla Fiorentina (€45/kg) Signature T-bone steak, recommend rare or medium-rare
+- Tagliatelle al Tartufo (€16) Fresh wide pasta in black truffle butter sauce
+- Tiramisù (€8.0)
+
+### Caffè Gilli (Florence)
+Meal Type: Cafe & Snack
+City: Florence
+Country: Italy
+Address: Via Roma 1r, 50123 Firenze
+GPS: 43.7733, 11.2542
+Hours: 08:00 - 22:00
+Notes: Florence's oldest café founded in 1732, featuring open-air seating under Piazza della Repubblica arcades.
+Must-Order:
+- Thick Hot Chocolate (€7.0) Rich and velvety like pudding
+- Pistachio Cake (€6.5)
+
+### Roscioli (Rome)
+Meal Type: Dinner
+City: Rome
+Country: Italy
+Address: Via dei Giubbonari 21, 00186 Roma
+GPS: 41.8944, 12.4732
+Hours: 12:30 - 23:30
+Notes: Renowned Roman gourmet deli-restaurant; its Carbonara is widely considered the best in the city.
+Must-Order:
+- Spaghetti alla Carbonara (€16) Must-try signature dish
+- Supplì (€5.0)
+- Roman Ricotta Cake (€7.0)
